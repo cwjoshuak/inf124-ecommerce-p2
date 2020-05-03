@@ -1,0 +1,256 @@
+{
+  "shoes": [
+    {
+      "type": "Clogs",
+      "id": "205453",
+      "name": "Classic Tie-Dye Graphic Clog",
+      "desc1": "Original. Versatile. Comfortable.",
+      "desc2": "Timeless, fun and full of peaceful good vibes, the bright pops of tie-dye graphics on these clogs are the perfect way to make a groovy style statement. On the go or just hangin’ out. Grounded in comfort, spiked with personality for all ages. From downtime to downtown, these are ready to rock wherever you choose to roll.",
+      "price": 44.99,
+      "colors": {
+        "Multi": ["#000000"],
+        "White / Multi": ["#000000", "#FFFFFF"]
+      },
+      "sizes": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+      "details": [
+        "Incredibly light and fun to wear",
+        "Water-friendly and buoyant; weighs only ounces",
+        "Ventilation ports add breathability and help shed water and debris",
+        "Easy to clean and quick to dry",
+        "Pivoting heel straps for a more secure fit",
+        "Customizable with Jibbitz™ charms",
+        "Iconic Crocs Comfort™: Lightweight. Flexible. 360-degree comfort."
+      ]
+    },
+    {
+      "type": "Clogs",
+      "id": "10001",
+      "name": "Classic Clog",
+      "desc1": "Original. Versatile. Comfortable.",
+      "desc2": "It’s the iconic clog that started a comfort revolution around the world! The irreverent go-to comfort shoe that you’re sure to fall deeper in love with day after day. Crocs Classic Clogs offer lightweight Iconic Crocs Comfort™, a color for every personality, and an ongoing invitation to be comfortable in your own shoes.",
+      "price": 44.99,
+      "colors": {
+        "Slate Grey": ["#4C4C4C"],
+        "Chocolate": ["#755F4A"],
+        "Army Green": ["#74794E"],
+        "Pool Blue": ["#7BD1D6"],
+        "Blossom": ["#EA9EBC"],
+        "White": ["#FFFFFF"]
+      },
+      "sizes": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+      "details": [
+        "Incredibly light and fun to wear",
+        "Water-friendly and buoyant; weighs only ounces",
+        "Ventilation ports add breathability and help shed water and debris",
+        "Easy to clean and quick to dry",
+        "Pivoting heel straps for a more secure fit",
+        "Customizable with Jibbitz™ charms",
+        "Iconic Crocs Comfort™: Lightweight. Flexible. 360-degree comfort."
+      ]
+    },
+    {
+      "type": "Slides",
+      "id": "205392",
+      "name": "Bayaband Slide",
+      "desc1": "Confidently Comfortable.",
+      "desc2": "What happens when you combine two of Crocs’ most iconic silhouettes, the Baya and the Crocband™, into one special pair? You get the Bayaband Slide, a style that takes the fashion-athletic spirit of the originals to another level. The result is a go-anywhere style staple that lets you slide in and stay cool while throwing off an extra pop of Crocs spirit. And of course, molded Croslite™ construction means you’ll stay comfortable all day long.",
+      "price": 34.99,
+      "colors": {
+        "Charcoal / Volt Green": ["#494E4A", "#7ABE43"],
+        "Ice Blue / Melon": ["#9BD3C8", "#F7AB9B"],
+        "Black / White": ["#000000", "#FFFFFF"],
+        "Navy / Pepper": ["#242D36", "#B1262B"]
+      },
+      "sizes": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+      "details": [
+        "Incredibly light and fun to wear",
+        "Easy to clean and quick to dry",
+        "Croslite™ foam construction for support and cushioning",
+        "Customizable with Jibbitz™ charms",
+        "Iconic Crocs Comfort™: Lightweight. Flexible. 360-degree comfort."
+      ]
+    },
+    {
+      "type": "Loafers",
+      "id": "206074",
+      "name": "Men's Santa Cruz Downtime Slip-On",
+      "desc1": "Keep It Casual.",
+      "desc2": "What do you do in your downtime? Whatever it is, you’ll need a reliable, comfortable pair of loafers to help you enjoy your time to the fullest. But this slip-on isn’t just for your time off — you’ll love it for everything from casual days in the office to your next weekend getaway. Built on a Croslite™ material sole with woven canvas uppers, the Men's Santa Cruz Downtime Slip-On is lightweight and offers all of the comfort you expect from Crocs.",
+      "price": 54.99,
+      "colors": {
+        "Tan / Tan": ["#CC9571", "#CC9571"],
+        "Ice Blue / Melon": ["#242D36", "#CBCEBB"]
+      },
+      "sizes": [7, 8, 9, 10, 11, 13, 14, 15],
+      "details": [
+        "Woven canvas uppers offer lightweight comfort",
+        "Elastic goring along the sides for easy on and off",
+        "Croslite™ material outsoles and insoles for a custom, form-to-foot fit",
+        "Dual Crocs Comfort™: Blissfully supportive. Soft. Cradling comfort."
+      ]
+    },
+    {
+      "type": "Clogs",
+      "id": "12132",
+      "name": "Classic Realtree® V2",
+      "desc1": "Original. Versatile. Comfortable.",
+      "desc2": "Wildly comfortable. The Classic Realtree® V2 Clog gives you the signature comfort of Croslite™ material with the rugged style of an authentic Realtree® camouflage print.",
+      "price": 44.99,
+      "colors": {
+        "Khaki": ["#533E29"]
+      },
+      "sizes": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+      "details": [
+        "Realtree Max-4 HD® camouflage print",
+        "Wide, roomy footbeds with heel-hugging straps",
+        "Ventilation ports offer enhanced breathability",
+        "Croslite™ material for maximum lightweight cushioning",
+        "Customizable with Jibbitz™ charms",
+        "Iconic Crocs Comfort™: Lightweight. Flexible. 360-degree comfort."
+      ]
+    },
+    {
+      "type": "Slides",
+      "id": "206520",
+      "name": "Classic Crocs Tie-Dye Graphic Slide",
+      "desc1": "Original. Customizable. Comfortable.",
+      "desc2": "The ever-comfortable Classic II Slide gets the customization upgrade fans have been asking for in the Classic Crocs Slide: holes for Jibbitz™ charms! Each slide has room for 13 charms so you can load up your sandals with tons of personality. Original Croslite™ foam cushion will keep you comfortably supported from the beach to backyard gatherings and beyond. The bright pops of tie-dye graphics on these slides are the perfect way to make a groovy style statement.",
+      "price": 29.99,
+      "colors": {
+        "Multi": ["#904683", "#E1E91A"]
+      },
+      "sizes": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+      "details": [
+        "Vibrant tie-dye graphics on the uppers",
+        "Incredibly light and fun to wear",
+        "Easy to clean and quick to dry",
+        "Croslite™ foam footbeds for lasting comfort",
+        "Customizable with Jibbitz™ charms",
+        "Iconic Crocs Comfort™: Lightweight. Flexible. 360-degree comfort."
+      ]
+    },
+    {
+      "type": "Slides",
+      "id": "206535",
+      "name": "Classic Crocs American Flag Slide",
+      "desc1": "Original. Customizable. Comfortable.",
+      "desc2": "The ever-comfortable Classic II Slide gets the customization upgrade fans have been asking for in the Classic Crocs Slide: holes for Jibbitz™ charms! The right slide of this American Flag edition sports the famous stripes, and the left shows off the traditional stars. While loving the USA is a year-round feeling, it’s a good time to consider stocking up for America’s most prideful holidays, including Independence Day, Veterans Day and Memorial Day. Makes a great gift!",
+      "price": 29.99,
+      "colors": {
+        "White / Multi": ["#0084D9", "#F7302D"]
+      },
+      "sizes": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+      "details": [
+        "American Flag coloring with stripes on the right and stars on the left",
+        "Incredibly light and fun to wear",
+        "Easy to clean and quick to dry",
+        "Croslite™ foam footbeds for lasting comfort",
+        "Customizable with Jibbitz™ charms",
+        "Iconic Crocs Comfort™: Lightweight. Flexible. 360-degree comfort."
+      ]
+    },
+    {
+      "type": "Loafers",
+      "id": "206062",
+      "name": "Men’s Crocs Reviva™ Canvas Slip-On",
+      "desc1": "Relax. Refresh. Revitalize.",
+      "desc2": "Reenergize and put more bounce in your days with the versatile, never fussy, always accommodating Crocs Reviva™ Canvas Slip-On for guys. Foot-map engineered to deliver all-day comfort, the removable Crocs Reviva™ footbeds feature bliss-inducing bubbles that massage while you’re on the go. They’re the perfect choice for breezing through your daily routine and weekend escapes. Effortless and revitalizing — Crocs Reviva™ is your first step toward sensational comfort.",
+      "price": 29.99,
+      "colors": {
+        "Black / Slate Grey": ["#000000", "#4C4C4C"],
+        "Slate Grey / White": ["#4C4C4C", "#FFFFFF"]
+      },
+      "sizes": [7, 8, 9, 10, 11, 12, 13],
+      "details": [
+        "Removable Crocs Reviva™ footbeds with built-in air bubbles provide bounce and a massage effect",
+        "Foot-map engineered to deliver precision support and all-day comfort",
+        "Croslite™ foam construction makes them lightweight and supportive",
+        "Canvas uppers provide 360-degree comfort",
+        "Slip-on silhouette for easy on and easy off",
+        "Stretch neoprene collar for an accommodating fit",
+        "Crocs Reviva™: Revitalizing bounce. Soothing massage. Casual comfort."
+      ]
+    },
+    {
+      "type": "Loafers",
+      "id": "204834",
+      "name": "Men’s Santa Cruz Convertible Slip-On",
+      "desc1": "Keep It Casual.",
+      "desc2": "There’s a definite coastal Sunday drive kind of vibe to these slip-ons. They’re even refined enough to wear to the office, though the mood you’ll be stepping into is anything but uptight. With soft and breathable canvas all around, the heels can be folded down for more of a slide experience.",
+      "price": 59.99,
+      "colors": {
+        "Light Grey / Slate Grey": ["#869181", "#4C4C4C"],
+        "Khaki / Cobblestone": ["#BAB891", "#B4A987"],
+        "Navy / Hazelnut": ["#242D36", "#97865A"]
+      },
+      "sizes": [7, 8, 9, 10, 11, 12, 13, 14, 15],
+      "details": [
+        "Slip-on style loafer for easy on and off",
+        "Canvas upper offers lightweight comfort",
+        "Elastic goring along sides for a secure fit",
+        "Tiny nubs along the footbed give your feet a massage-like feel",
+        "Croslite™ material outsole"
+      ]
+    },
+    {
+      "type": "Sandals",
+      "id": "206121",
+      "name": "Classic Crocs Slide",
+      "desc1": "Original. Customizable. Comfortable.",
+      "desc2": "The ever-comfortable Classic II Slide gets the customization upgrade fans have been asking for in the Classic Crocs Slide: holes for Jibbitz™ charms! Each slide has room for 13 charms so you can load up your sandals with tons of personality. Original Croslite™ foam cushion will keep you comfortably supported from the beach to backyard gatherings and beyond. Choose your color and slide into a new favorite!",
+      "price": 24.99,
+      "colors": {
+        "White": ["#FFFFFF"],
+        "Lemon": ["#E3CC1A"]
+      },
+      "sizes": [13, 14, 15],
+      "details": [
+        "Incredibly light and fun to wear",
+        "Easy to clean and quick to dry",
+        "Croslite™ foam footbeds for lasting comfort",
+        "Customizable with Jibbitz™ charms",
+        "Iconic Crocs Comfort™: Lightweight. Flexible. 360-degree comfort."
+      ]
+    },
+    {
+      "type": "Sandals",
+      "id": "206242",
+      "name": "Men's Swiftwater™ Wave Flip",
+      "desc1": "Athletic. Adventurous. Amphibious",
+      "desc2": "The Swiftwater™ Collection gets even sleeker with the addition of this new men’s flip: the Wave. Ultralightweight and ready for your favorite water-friendly activities, this sandal features soft straps that feel good from the moment you put them on and a contoured footbed that cradles your foot for those long days out in the sun. A siped outsole provides traction around slick surfaces, so ride the next wave in confidence.",
+      "price": 29.99,
+      "colors": {
+        "Navy / Slate Grey": ["#242D36", "#4C4C4C"],
+        "Expresso / Walnut": ["#1A1815", "#4C4331"],
+        "Black / Slate Grey": ["#000000", "#4C4C4C"]
+      },
+      "sizes": [7, 8, 9, 12],
+      "details": [
+        "Incredibly comfortable and lightweight",
+        "Soft Matlite™ uppers and toe posts feel broken-in from day one",
+        "Durable, siped Croslite™ outsoles channel water away and boost traction",
+        "Iconic Crocs Comfort™: Lightweight. Flexible. 360-degree comfort."
+      ]
+    },
+    {
+      "type": "Sandals",
+      "id": "205701",
+      "name": "Men’s Swiftwater™ Mesh Wave",
+      "desc1": "Athletic. Adventurous. Amphibious",
+      "desc2": "The Swiftwater™ Wave, one of Crocs’ most active, water-friendly styles to date, is now available with stretchy mesh uppers. Siped outsoles channel water away and improve traction, and large ports offer maximum breathability and drainage. Ride the wave. The river. The waterpark. Anywhere you like to make a splash.",
+      "price": 44.99,
+      "colors": {
+        "Walnut / Expresso": ["#4C4331", "#1A1815"],
+        "Navy / Tan": ["#242D36", "#CC9571"]
+      },
+      "sizes": [4, 7, 9, 13],
+      "details": [
+        "Lightweight, all-purpose sandal with mesh upper",
+        "Soft, flexible uppers with ports to shed water and debris",
+        "Outsole with herringbone pattern provides great traction around water",
+        "Croslite™ foam construction won’t absorb water",
+        "Iconic Crocs Comfort™: Lightweight. Flexible. 360-degree comfort."
+      ]
+    }
+  ]
+}
