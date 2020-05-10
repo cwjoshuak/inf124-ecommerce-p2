@@ -1,7 +1,6 @@
 console.log("WTF IS GOING ON");
 
-let orderForm = document.createElement("div");
-  orderForm.className = "order-form";
+let orderForm = document.getElementById("odForm");
   let oih3 = document.createElement("h3");
   oih3.textContent = "Order Information";
 
@@ -129,7 +128,7 @@ let orderForm = document.createElement("div");
   </li>
 </ul>`;
   orderForm.appendChild(form);
-
+  
   console.log();
 
 function submitForm(ev) {
