@@ -24,77 +24,84 @@
       </div>
     </div>
 <?php
-        $data = '{
-            "type": "Clogs",
-             "id": "10001",
-            "name": "Classic Clog",
-            "desc1": "Original. Versatile. Comfortable.",
-            "desc2": "It’s the iconic clog that started a comfort revolution around the world! The irreverent go-to comfort shoe that you’re sure to fall deeper in love with day after day. Crocs Classic Clogs offer lightweight Iconic Crocs Comfort™, a color for every personality, and an ongoing invitation to be comfortable in your own shoes.",
-            "price": 44.99,
-            "colors": {
-              "Slate Grey": ["#4C4C4C"],
-              "Chocolate": ["#755F4A"],
-              "Army Green": ["#74794E"],
-              "Pool Blue": ["#7BD1D6"],
-              "Blossom": ["#EA9EBC"],
-              "White": ["#FFFFFF"]
-            },
-            "sizes": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
-            "details": [
-              "Incredibly light and fun to wear",
-              "Water-friendly and buoyant; weighs only ounces",
-              "Ventilation ports add breathability and help shed water and debris",
-              "Easy to clean and quick to dry",
-              "Pivoting heel straps for a more secure fit",
-              "Customizable with Jibbitz™ charms",
-              "Iconic Crocs Comfort™: Lightweight. Flexible. 360-degree comfort."
-            ]
-          }';
+      //get url parameters
+        $currURL = $_SERVER['REQUEST_URI'];
+        $currURL = substr($currURL, 13);
+        foreach (explode('&', $currURL) as $chunk) {
+          $param = explode("=", $chunk);
+          if ($param) {
+            ${urldecode($param[0])} = urldecode($param[1]);
+          }
+          // echo $id;
+          // echo $color;
+      }
 
-          $arr = json_decode($data, true);
-          $currentColor = 0;
-          $currColor = "Slate Grey";
-          $colorrrrs = ["Slate Grey","Chocolate","Army Green","Pool Blue","Blossom","White"];
-          
-        
+      //sql fetches
+      $con = mysqli_connect("127.0.0.1",'root','rxpost123', 'ecrocs');
+      if(!$con){
+        echo 'Error connecting to server';
+      }
+      $shoes_sql_query = "SELECT * FROM shoes WHERE id={$id}";
+      $shoes_sql = mysqli_fetch_assoc(mysqli_query($con, $shoes_sql_query));
+      $shoes_details_sql_query = "SELECT details FROM shoe_details WHERE shoe_id={$id}";
+      $shoes_details_sql = mysqli_fetch_all(mysqli_query($con, $shoes_details_sql_query));
+      $shoes_sizes_sql_query = "SELECT size FROM shoe_sizes WHERE shoe_id={$id}";
+      $shoes_sizes_sql = mysqli_fetch_all(mysqli_query($con, $shoes_sizes_sql_query));
+      $shoes_colors_sql_query = "SELECT * FROM shoe_colors WHERE shoe_id={$id}";
+      $shoes_colors_sql = mysqli_fetch_all(mysqli_query($con, $shoes_colors_sql_query));
+      $shoes_color_sql_query = "SELECT * FROM shoe_colors WHERE shoe_id={$id} AND color_name='{$color}'";
+      $shoes_color_sql = mysqli_fetch_all(mysqli_query($con, $shoes_color_sql_query));
+      $colorindex = substr($shoes_color_sql[0][3],-1);
+
         echo 
         "<div class='product'> 
           <div class='product-left'> 
-            <img src='./assets/{$arr[id]}/product_{$currentColor}.jpg' class='main' />
+            <img src='./assets/{$id}/product_{$colorindex}.jpg' class='main' />
             <div class='selector center'>
-              <img src='./assets/{$arr[id]}/product_{$currentColor}.jpg' class='active' id='img1' />
-              <img src='./assets/{$arr[id]}/color_{$currentColor}.jpg' id='img2' />
+              <img src='./assets/{$id}/product_{$colorindex}.jpg' class='active' id='img1' />
+              <img src='./assets/{$id}/color_{$colorindex}.jpg' id='img2' />
             </div>
             <script src='js/np2.js'></script>
-            <p>{$arr[desc1]}<br />{$arr[desc2]}</p>
-            <span class='bold'>{$arr[name]} Details</span>
+            <p>{$shoes_sql['desc1']}<br />{$shoes_sql['desc2']}</p>
+            <span class='bold'>{$shoes_sql['name']} Details</span>
             <ul>
             ";
         
-        foreach($arr[details] as $value){
-          echo "<li>$value</li>";
+        foreach($shoes_details_sql as $value){
+          echo "<li>$value[0]</li>";
         }
 
         echo 
         " </ul>
           </div>
           <div class='product-right'> 
-              <h2>{$arr[name]}</h2>
-              <h4>\${$arr[price]}</h4>
+              <h2>{$shoes_sql['name']}</h2>
+              <h4>\${$shoes_sql['price']}</h4>
               <hr />
               <span class='color-text bold'>Color: </span>
-              <span class='color-text bold'>{$currColor}</span>
+              <span class='color-text bold'>{$shoes_color_sql[0][1]}</span>
               <br />
               <br />
               <div class='selector'>";
 
-        foreach($colorrrrs as $c){
-          echo "<a href='./product.php?id={$arr[id]}&color={$c}'><img src='./assets/{$arr[id]}/color_0.jpg' class='small'></a>";
+        foreach($shoes_colors_sql as $c){
+          $colIndex = substr($c[3],-1);
+          if ($colIndex == $colorindex) {
+            echo "<a href='./product.php?id={$id}&color={$c[1]}'><img src='./assets/{$id}/color_{$colIndex}.jpg' class='small active'></a>";
+          } else {
+            echo "<a href='./product.php?id={$id}&color={$c[1]}'><img src='./assets/{$id}/color_{$colIndex}.jpg' class='small'></a>";
+          }
         };
         echo 
         " <br /><br />
         <span class='size-text bold'>Shoe Size:</span>
-        <select id='size-selector'><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option><option value='9'>9</option><option value='10'>10</option><option value='11'>11</option><option value='12'>12</option><option value='13'>13</option><option value='14'>14</option><option value='15'>15</option><option value='16'>16</option><option value='17'>17</option></select>
+        <select id='size-selector'>";
+        foreach($shoes_sizes_sql as $value){
+          echo "<option value='{$value[0]}'>{$value[0]}</option>";
+        }
+        
+        echo 
+        "</select>
         
         <div class='order-form' id='odForm'>
         
