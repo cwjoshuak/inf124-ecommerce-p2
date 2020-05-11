@@ -40,7 +40,6 @@
     while($row = mysqli_fetch_assoc($raw_results)){
         $categories[$row['type']][] = $row;
     }
-    // echo json_encode($categories);
     foreach ($categories as $type => $shoes) {
         echo "<table><thead><tr>";
         echo "<th colspan=3>Men's {$type}</th>";
@@ -48,24 +47,23 @@
         echo "<tbody><tr>";
         foreach($shoes as $shoe) {
             
-            $sql = "SELECT `color_name`, `color_hex` FROM `shoe_colors` WHERE shoe_colors.shoe_id={$shoe['id']} ORDER BY `color_name`";
+            $sql = "SELECT `color_name`, `color_hex`, `file_name` FROM `shoe_colors` WHERE shoe_colors.shoe_id={$shoe['id']} ORDER BY `file_name`";
             $raw_results = mysqli_query($con, $sql);
             $colors = array();
             while($row = mysqli_fetch_assoc($raw_results)) {
                 $colors[$row['color_name']][] = $row['color_hex'];
             }
-            echo json_encode($colors);
             echo "<td>";
-            $colorsDiv = "<div class='colors'>";
+            $colorsDiv = "<div class='colors' id='colors-{$shoe['id']}'>";
             foreach($colors as $color => $hexes) {
-                echo $color;
                 $colorDivStyle="";
                 if(count($hexes) == 2) {
-                    $colorDivStyle="'background-image':" ."\"" .dualGradient($hexes[0], $hexes[1]).";\"";
+                    $colorDivStyle="'background-image: ".dualGradient($hexes[0], $hexes[1]).";'";
                 } else {
-                    $colorDivStyle="'background-image': \"{$hexes[0]}\"";
+                    $colorName = stripslashes($hexes[0]);
+                    $colorDivStyle="'background-color: {$colorName};'";
                 }
-                $colorDiv = "<div class='circle' name={$color} style={$colorDivStyle} ></div>";
+                $colorDiv = "<div class='circle' name='{$color}' style={$colorDivStyle} ></div>";
                 $colorsDiv .= $colorDiv;
             }
             $colorsDiv .= "</div>";
@@ -77,7 +75,6 @@
             $anchor = "<a id=a-{$shoe['id']} href='./product.html?id={$shoe['id']}'>{$card}</a>";
             
             echo $anchor;
-            echo json_encode($shoe);
             echo "</td>";
         }
 
@@ -87,9 +84,9 @@
 
     $con->close();
 
-function dualGradient($g1, $g2) {
-  return "-webkit-linear-gradient(-235deg, {$g1} 50%, {$g2} 50%)";
-}
+    function dualGradient($g1, $g2) {
+    return "-webkit-linear-gradient(-235deg, {$g1} 50%, {$g2} 50%)";
+    }
 ?>
     <script src="js/new-products.js"></script>
   </body>
