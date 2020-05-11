@@ -72,7 +72,7 @@
             $price = "<span class='price'>\${$shoe['price']}</span>";
             
             $card = "<div class='card'>{$title}{$img}{$price}{$colorsDiv}</div>";
-            $anchor = "<a id=a-{$shoe['id']} href='./product.html?id={$shoe['id']}'>{$card}</a>";
+            $anchor = "<a id=a-{$shoe['id']} href=''>{$card}</a>";
             
             echo $anchor;
             echo "</td>";

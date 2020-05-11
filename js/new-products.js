@@ -12,10 +12,15 @@ for (let i = 0; i < cards.length; i++) {
 let colors = document.getElementsByClassName("colors");
 for (let i = 0; i < colors.length; i++) {
   let anchor = colors[i].parentElement.parentElement;
+
   let id = anchor.id.split("-")[1];
   let colorCircles = colors[i].childNodes;
-
   for (let j = 0; j < colorCircles.length; j++) {
+    if (j == 0) {
+      let name = colorCircles[j].attributes["name"].value;
+      anchor.setAttribute("href", "./product.php?id=" + id + "&color=" + name);
+    }
+
     colorCircles[j].addEventListener("mouseenter", (event) => {
       i = document.getElementById("img-" + id);
 
