@@ -20,7 +20,7 @@
   <body style="margin: 0;">
     <div class="productheader">
       <div class="logo">
-        <a href="./products.html">ecrocs</a>
+        <a href="./products.php">ecrocs</a>
       </div>
     </div>
 <?php
