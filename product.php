@@ -47,7 +47,7 @@
       $shoes_details_sql = mysqli_fetch_all(mysqli_query($con, $shoes_details_sql_query));
       $shoes_sizes_sql_query = "SELECT size FROM shoe_sizes WHERE shoe_id={$id}";
       $shoes_sizes_sql = mysqli_fetch_all(mysqli_query($con, $shoes_sizes_sql_query));
-      $shoes_colors_sql_query = "SELECT * FROM shoe_colors WHERE shoe_id={$id}";
+      $shoes_colors_sql_query = "SELECT DISTINCT color_name, file_name FROM shoe_colors WHERE shoe_id = {$id};";
       $shoes_colors_sql = mysqli_fetch_all(mysqli_query($con, $shoes_colors_sql_query));
       $shoes_color_sql_query = "SELECT * FROM shoe_colors WHERE shoe_id={$id} AND color_name='{$color}'";
       $shoes_color_sql = mysqli_fetch_all(mysqli_query($con, $shoes_color_sql_query));
@@ -85,11 +85,11 @@
               <div class='selector'>";
 
         foreach($shoes_colors_sql as $c){
-          $colIndex = substr($c[3],-1);
+          $colIndex = substr($c[1],-1);
           if ($colIndex == $colorindex) {
-            echo "<a href='./product.php?id={$id}&color={$c[1]}'><img src='./assets/{$id}/color_{$colIndex}.jpg' class='small active'></a>";
+            echo "<a href='./product.php?id={$id}&color={$c[0]}'><img src='./assets/{$id}/color_{$colIndex}.jpg' class='small active'></a>";
           } else {
-            echo "<a href='./product.php?id={$id}&color={$c[1]}'><img src='./assets/{$id}/color_{$colIndex}.jpg' class='small'></a>";
+            echo "<a href='./product.php?id={$id}&color={$c[0]}'><img src='./assets/{$id}/color_{$colIndex}.jpg' class='small'></a>";
           }
         };
         echo 
