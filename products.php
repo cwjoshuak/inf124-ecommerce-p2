@@ -85,7 +85,7 @@
     $con->close();
 
     function dualGradient($g1, $g2) {
-    return "-webkit-linear-gradient(-235deg, {$g1} 50%, {$g2} 50%)";
+      return "-webkit-linear-gradient(-235deg, {$g1} 50%, {$g2} 50%)";
     }
 ?>
     <script src="js/new-products.js"></script>

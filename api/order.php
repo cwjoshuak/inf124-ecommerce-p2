@@ -11,7 +11,7 @@
     $shoe_id = $_POST["shoe_id"];
     $color = $_POST["color"];
     $qty = $_POST["quantity"];
-
+    $shoe_size = $_POST["shoe_size"];
     $base_price = $_POST["base_price"];
     $state_tax = $_POST["state_tax"];
 
@@ -29,20 +29,15 @@
     $payment_card = $_POST["payment_card"];
     $payment_exp_month = $_POST["payment_exp_month"];
     $payment_exp_year = $_POST["payment_exp_year"];
-    echo($shoe_id);
-    // $sql = "INSERT INTO transactions 
-    // (shoe_id, color_name, quantity, base_price, state_tax, billing_full_name, billing_phone_number, billing_email, billing_addr_1, billing_city, billing_state, billing_zip, shipping_method, payment_name, payment_card, payment_exp_month, payment_exp_year)
-    // VALUES 
-    // ('$shoe_id', '$color', '$qty', '$base_price', '$state_tax', '$billing_full_name', '$billing_phone_number', '$billing_email', '$billing_addr_1', '$billing_city', '$billing_state', '$billing_zip', '$shipping_method', '$payment_name', '$payment_card', '$payment_exp_month', '$payment_exp_year')";
-	// echo json_encode([$seller_NPI, $NDC, $name, $price, $expiration_date, $quantity, $strength, $dosage_form, $labeller, $lot_number]);
+
     $sql = "INSERT INTO transactions 
-    (shoe_id, color_name, quantity, base_price, state_tax, billing_full_name, billing_phone_number, billing_email, billing_addr_1, billing_city, billing_state, billing_zip, shipping_method, payment_name, payment_card, payment_exp_month, payment_exp_year)
+    (shoe_id, color_name, quantity, shoe_size, base_price, state_tax, billing_full_name, billing_phone_number, billing_email, billing_addr_1, billing_city, billing_state, billing_zip, shipping_method, payment_name, payment_card, payment_exp_month, payment_exp_year)
     VALUES 
-    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     $stmt = mysqli_prepare($con, $sql);
     
-    mysqli_stmt_bind_param($stmt, "ssiddssssssssssss", $shoe_id, $color, $qty, $base_price, $state_tax, $billing_full_name, $billing_phone_number, $billing_email, $billing_addr_1, $billing_city, $billing_state, $billing_zip, $shipping_method, $payment_name, $payment_card, $payment_exp_month, $payment_exp_year);
+    mysqli_stmt_bind_param($stmt, "ssiiddssssssssssss", $shoe_id, $color, $qty, $shoe_size, $base_price, $state_tax, $billing_full_name, $billing_phone_number, $billing_email, $billing_addr_1, $billing_city, $billing_state, $billing_zip, $shipping_method, $payment_name, $payment_card, $payment_exp_month, $payment_exp_year);
 
 	if(!mysqli_stmt_execute($stmt)){
         echo json_encode(['error' => true, 'message' => mysqli_error($con)]);
