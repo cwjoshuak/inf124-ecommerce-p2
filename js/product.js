@@ -18,6 +18,8 @@ let queryParams = parseQuery(window.location.search);
 
 console.log(window.location);
 console.log(parseQuery(window.location.search));
+console.log("queryParams");
+console.log(queryParams);
 
 function doTheThing(data) {
   console.log(data);

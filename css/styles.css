@@ -315,8 +315,15 @@ th {
 
 .product-right h4 {
   margin-top: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   font-size: 1.8em;
+  letter-spacing: 0.02em;
+}
+
+.product-right h5 {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
   letter-spacing: 0.02em;
 }
 .product-right img.small {
