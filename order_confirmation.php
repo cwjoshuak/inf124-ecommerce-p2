@@ -21,10 +21,12 @@
     />
     <link rel="stylesheet" href="css/styles.css?v=1.0" />
   </head>
-  <body class="products" style="margin: 0;">
+  <body class="confirmation-bg" style="margin: 0;">
     <div>
+      <div class="confirmationheader">
       <div class="logo">
         <a href="./index.html">ecrocs</a>
+        </div>
       </div>
     </div>
 <?php
@@ -36,7 +38,7 @@
     if(!$con){
         echo 'Error connecting to server';
     }
-    $sql = "SELECT * FROM `transactions` JOIN `shoes` on shoes.id=transactions.shoe_id where transactions.id = $id LIMIT 1";
+    $sql = "SELECT * FROM `transactions` JOIN shoes on shoes.id=transactions.shoe_id JOIN shoe_colors on shoe_colors.color_name=transactions.color_name where transactions.id = $id LIMIT 1";
     $results = array();
 
 
@@ -44,29 +46,39 @@
         $row = mysqli_fetch_assoc($raw_results);
         // echo $row["id"];
 
-        echo "<div class='order-confirmation'>";
+        echo "<div class='confirmation'>";
+        echo "<div class='confirmation-left'>";
         echo "<h1>Order Confirmation</h1>";
+        echo "<h2>Order Number: #{$id}</h2>";
+        echo "<h3>{$row["name"]}</h3>";
+        echo "<img src='./assets/{$row['shoe_id']}/{$row['file_name']}.jpg'>";
 
-        echo "<h2>{$row["name"]}</h2>";
-        echo "<img src='./assets/{$row['shoe_id']}/product_0.jpg'>";
+        $total = ($row['base_price'] + $row['state_tax']) * $row['quantity'];
+        $total2 = number_format($total,2);
 
-        echo "<br/>";
-        echo "Quantity: {$row['quantity']}<br/>";
-        echo "Size: {$row['shoe_size']}";
-        echo "<div class='billing-info'>";
-        echo "<h3>Billing Information</h3>";
+        echo "<br/><h5>";
+        echo "<b>Size:</b> {$row['shoe_size']} <b>Color:</b> {$row['color_name']}<br/>";
+        echo "<b>Quantity:</b> {$row['quantity']}<br/>";
+        echo "<b>Price:</b> \${$row['base_price']}<br/>";
+        echo "<b>Tax:</b> \${$row['state_tax']}<br/><br/>";
+        echo "<b>Total Price:</b> \${$total2}<br/>";
+        echo "</h5></div>";
+
+        echo "<div class='confirmation-right'>";
+        echo "<h3>Billing Information</h3><h5>";
         echo "{$row['billing_full_name']}<br/>";
         echo "{$row['billing_addr_1']}<br/>";
         echo "{$row['billing_city']}<br/>";
-        echo "{$row['billing_state']}, {$row['billing_zip']}<br/>";
-        echo "</div>";
+        echo "{$row['billing_state']}, {$row['billing_zip']}</h5><br/>";
+        
         $cc_num = substr($row['payment_card'], -4);
         $exp_mo = str_pad($row['payment_exp_month'], 2, "0", STR_PAD_LEFT);
         echo "<div class='payment-info'>";
-        echo "<h3>Payment Information</h3>";
-        echo "Name on Card: {$row['payment_name']} <br/>";
-        echo "Credit Card Number: **** **** **** {$cc_num} <br/>";
-        echo "Credit Card Expiry: {$exp_mo}/{$row['payment_exp_year']}";
+        echo "<br/><br/><br/><h3>Payment Information</h3><h5>";
+        echo "<b>Name:</b> {$row['payment_name']} <br/>";
+        echo "<b>Credit Card Number:</b> **** **** **** {$cc_num} <br/>";
+        echo "<b>Credit Card Expiry:</b> {$exp_mo}/{$row['payment_exp_year']}</h5>";
+        echo "</div>";
         echo "</div>";
     }
 
