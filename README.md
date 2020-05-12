@@ -34,3 +34,15 @@ Our site consists of 4 main pages:-
 ![](assets/order-confirmation.png)
 
 #### Notes:
+
+- Files from project 1 have been removed from the repo which were unnecessary:-
+
+```
+    - js/products.js
+    - js/product.js
+    - products.html
+    - product.html
+```
+
+- Necessary sql files are in the `sql/` folder.
+- API files are in the `api/` folder .

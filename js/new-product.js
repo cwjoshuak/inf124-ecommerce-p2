@@ -176,7 +176,7 @@ function getPlace(zip) {
     }
   };
   // Call the response software component
-  xhr.open("GET", "getCityState.php?zip=" + zip);
+  xhr.open("GET", "api/getCityState.php?zip=" + zip);
   xhr.send(null);
 }
 
