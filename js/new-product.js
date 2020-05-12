@@ -1,13 +1,13 @@
 let orderForm = document.getElementById("odForm");
-  let oih3 = document.createElement("h3");
-  oih3.textContent = "Order Information";
+let oih3 = document.createElement("h3");
+oih3.textContent = "Order Information";
 
-  orderForm.appendChild(oih3);
-  let form = document.createElement("form");
-  form.action = "javascript:;";
-  form.onsubmit = (ev) => insertToDB(ev);
+orderForm.appendChild(oih3);
+let form = document.createElement("form");
+form.action = "javascript:;";
+form.onsubmit = (ev) => insertToDB(ev);
 
-  form.innerHTML = `<ul>
+form.innerHTML = `<ul>
   <li>
     <label for="qty">Quantity</label>
     <input type="number" id="qty" name="qty" value="1" min="1" required/>
@@ -130,123 +130,125 @@ let orderForm = document.getElementById("odForm");
     <button type="submit">Purchase</button>
   </li>
 </ul>`;
-  orderForm.appendChild(form);
-  
-  console.log();
-  
-  function getPlace (zip)
-{
-  if (window.XMLHttpRequest)
-  {  // IE7+, Firefox, Chrome, Opera, Safari
-     var xhr = new XMLHttpRequest();
-  }
-  else
-  {  // IE5, IE6
-     var xhr = new ActiveXObject ("Microsoft.XMLHTTP");
+orderForm.appendChild(form);
+
+console.log();
+
+function getPlace(zip) {
+  if (window.XMLHttpRequest) {
+    // IE7+, Firefox, Chrome, Opera, Safari
+    var xhr = new XMLHttpRequest();
+  } else {
+    // IE5, IE6
+    var xhr = new ActiveXObject("Microsoft.XMLHTTP");
   }
 
   // Register the embedded handler function
   // This function will be called when the server returns
   // (the "callback" function)
-  xhr.onreadystatechange = function ()
-  { // 4 means finished, and 200 means okay.
-    if (xhr.readyState == 4 && xhr.status == 200)
-    { // Data should look like "Fairfax, Virginia"
+  xhr.onreadystatechange = function () {
+    // 4 means finished, and 200 means okay.
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      // Data should look like "Fairfax, Virginia"
       var result = xhr.responseText;
-      var place = result.split (', ');
-        document.getElementById("city").value = place[0];
-        document.getElementById("state").value = place[1];
-        if (place[3]) {
-        var basePrice = (document.getElementById("baseprice").textContent).substring(1);
+      var place = result.split(", ");
+      document.getElementById("city").value = place[0];
+      document.getElementById("state").value = place[1];
+      if (place[3]) {
+        var basePrice = document
+          .getElementById("baseprice")
+          .textContent.substring(1);
         var taxPrice = basePrice * parseFloat(place[2]);
-        var taxPer = parseFloat(place[2]) * 100
-        document.getElementById("tax").textContent = taxPrice.toFixed(2);
+        var taxPer = parseFloat(place[2]) * 100;
+        document.getElementById("tax").textContent = +taxPrice.toFixed(2);
         document.getElementById("taxfrom").textContent = place[3];
-        document.getElementById("taxpercentage").textContent = taxPer.toFixed(0);
+        document.getElementById("taxpercentage").textContent = taxPer.toFixed(
+          0
+        );
       } else {
         document.getElementById("tax").textContent = "0.00";
         document.getElementById("taxfrom").textContent = "";
         document.getElementById("taxpercentage").textContent = 0;
       }
-        
     }
-  }
+  };
   // Call the response software component
-  xhr.open ("GET", "getCityState.php?zip=" + zip);
-  xhr.send (null);
+  xhr.open("GET", "getCityState.php?zip=" + zip);
+  xhr.send(null);
 }
 
-// function submitForm(ev) {
-//   ev.preventDefault();
-//   let form = Object.entries(ev.target);
-//   console.log(form);
-//   //   form.preventDefault();
-//   if (parseInt(form[0][1].value) < 1) {
-//     alert("Quantity should be more than 1!");
-//   }
-//   let size = document.getElementById("size-selector").value;
-//   console.log(size);
-//   let mail = document.createElement("a");
-//   let newLine = "%0D%0A";
-//   let body =
-//     "Full Name: " +
-//     form[1][1].value +
-//     newLine +
-//     "Phone Number: " +
-//     form[2][1].value +
-//     newLine +
-//     "Email: " +
-//     form[3][1].value +
-//     newLine +
-//     "Address:" +
-//     newLine +
-//     form[4][1].value +
-//     "," +
-//     newLine +
-//     form[5][1].value +
-//     "," +
-//     newLine +
-//     form[6][1].value +
-//     " " +
-//     form[7][1].value +
-//     newLine +
-//     newLine +
-//     "Shipping Preference: " +
-//     form[8][1].value +
-//     newLine;
-
-//   let billing =
-//     "Name on Card: " +
-//     form[9][1].value +
-//     newLine +
-//     "CC Number: " +
-//     form[10][1].value +
-//     newLine +
-//     "CC Expiration: " +
-//     form[11][1].value +
-//     " / " +
-//     form[12][1].value;
-//   body = body + billing + newLine + newLine;
-//   mail.href =
-//     "mailto:purchases@ecrocs.com" +
-//     "?subject=Purchase Order: Item #" +
-//     queryParams["id"] +
-//     " SZ-" +
-//     size +
-//     " QTY-" +
-//     form[0][1].value +
-//     "&body=" +
-//     body;
-
-//   mail.click();
-// }
+function parseQuery(queryString) {
+  var query = {};
+  var pairs = (queryString[0] === "?"
+    ? queryString.substr(1)
+    : queryString
+  ).split("&");
+  for (var i = 0; i < pairs.length; i++) {
+    var pair = pairs[i].split("=");
+    query[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1] || "");
+  }
+  return query;
+}
+let queryParams = parseQuery(window.location.search);
 
 function insertToDB(ev) {
   let form = Object.entries(ev.target);
+  console.log(document.getElementById("baseprice").textContent.substring(1));
+  fetch("api/order.php", {
+    method: "post",
+    body: JSON.stringify({
+      shoe_id: queryParams["id"],
+      color: queryParams["color"],
+      shoe_size: document.getElementById("size-selector").value,
+      quantity: form[0][1].value,
+      base_price: document.getElementById("baseprice").textContent.substring(1),
+      state_tax: document.getElementById("tax").textContent,
+      billing_full_name: form[1][1].value,
+      billing_phone_number: form[2][1].value,
+      billing_email: form[3][1].value,
+      billing_addr_1: form[4][1].value,
+      billing_city: form[6][1].value,
+      billing_state: form[7][1].value,
+      billing_zip: form[5][1].value,
+      shipping_method: form[8][1].value,
+      payment_name: form[9][1].value,
+      payment_card: form[10][1].value,
+      payment_exp_month: form[11][1].value,
+      payment_exp_year: form[12][1].value,
+    }),
+  })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      if (!data["error"]) {
+        window.location.href =
+          "order_confirmation.php?id=" + data["transaction_id"];
+      } else {
+        alert("There was an error confirming your order.");
+      }
+    });
   console.log(form);
-
-  var url = 'order_confirmation.php?';
-  var query = 'shoe_id=' + '10001';
-
-  // window.location.href = url + query
+  console.log(
+    JSON.stringify({
+      shoe_id: queryParams["id"],
+      color: queryParams["color"],
+      shoe_size: document.getElementById("size-selector").value,
+      quantity: form[0][1].value,
+      base_price: document.getElementById("baseprice").textContent.substring(1),
+      state_tax: document.getElementById("tax").textContent,
+      billing_full_name: form[1][1].value,
+      billing_phone_number: form[2][1].value,
+      billing_email: form[3][1].value,
+      billing_addr_1: form[4][1].value,
+      billing_city: form[6][1].value,
+      billing_state: form[7][1].value,
+      billing_zip: form[5][1].value,
+      shipping_method: form[8][1].value,
+      payment_name: form[9][1].value,
+      payment_card: form[10][1].value,
+      payment_exp_month: form[11][1].value,
+      payment_exp_year: form[12][1].value,
+    })
+  );
 }
