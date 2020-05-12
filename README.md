@@ -25,8 +25,8 @@ Our site consists of 4 main pages:-
 2. The form input is validated on the client-side as the user fills out the form. After the user fills in the form on the individual product page and clicks on the Purchase button, the form input is sent through a `POST` request to `api/order.php` which uses a prepared SQL statement through `mysqli` to insert it into the `transactions` table.
 3. After the `POST` request is successful, the server responds with a `transaction_id` which is used to redirect the user to the order confirmation page. This page retrieves the transaction listing based on the id and displays the details to the user.
 4. We have two ajax features:
-   * Typing in ZIP code will autofill City and State in the form
-   * Typing in ZIP code will automatically calculate the tax rate and display it for the user
+   - Typing in ZIP code will autofill City and State in the form
+   - Typing in ZIP code will automatically calculate the tax rate and display it for the user
 
 ### Screenshots
 
