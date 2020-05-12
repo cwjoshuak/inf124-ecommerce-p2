@@ -28,7 +28,7 @@ CREATE TABLE `shoe_colors` (
   `color_hex` varchar(7) NOT NULL,
   `file_name` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`shoe_id`,`color_name`,`color_hex`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -53,7 +53,7 @@ CREATE TABLE `shoe_details` (
   `shoe_id` varchar(10) NOT NULL,
   `details` varchar(100) NOT NULL,
   PRIMARY KEY (`id`,`shoe_id`,`details`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -77,7 +77,7 @@ CREATE TABLE `shoe_sizes` (
   `shoe_id` varchar(10) NOT NULL,
   `size` int NOT NULL,
   PRIMARY KEY (`shoe_id`,`size`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -105,7 +105,7 @@ CREATE TABLE `shoes` (
   `desc2` varchar(500) DEFAULT NULL,
   `price` decimal(4,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
