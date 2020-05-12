@@ -28,7 +28,7 @@ for (let i = 0; i < colors.length; i++) {
       a = document.getElementById("a-" + id);
       a.setAttribute(
         "href",
-        "./product.html?id=" +
+        "./product.php?id=" +
           id +
           "&color=" +
           event.target.attributes.name.value
