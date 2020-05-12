@@ -78,7 +78,7 @@
               <h2>{$shoes_sql['name']}</h2>
               <h4 id='baseprice'>\${$shoes_sql['price']}</h4>
               
-              <h5>+ \$<span id='tax'>0.00</span> <span id='taxfrom'></span> tax (<span id='taxpercentage'></span>%)</h5>
+              <h5>+ \$<span id='tax'>0.00</span> <span id='taxfrom'></span> tax (<span id='taxpercentage'>0</span>%)</h5>
               <hr />
               <span class='color-text bold'>Color: </span>
               <span class='color-text bold'>{$shoes_color_sql[0][1]}</span>

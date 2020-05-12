@@ -156,12 +156,19 @@ let orderForm = document.getElementById("odForm");
       var place = result.split (', ');
         document.getElementById("city").value = place[0];
         document.getElementById("state").value = place[1];
+        if (place[3]) {
         var basePrice = (document.getElementById("baseprice").textContent).substring(1);
         var taxPrice = basePrice * parseFloat(place[2]);
         var taxPer = parseFloat(place[2]) * 100
         document.getElementById("tax").textContent = taxPrice.toFixed(2);
         document.getElementById("taxfrom").textContent = place[3];
         document.getElementById("taxpercentage").textContent = taxPer.toFixed(0);
+      } else {
+        document.getElementById("tax").textContent = "0.00";
+        document.getElementById("taxfrom").textContent = "";
+        document.getElementById("taxpercentage").textContent = 0;
+      }
+        
     }
   }
   // Call the response software component
