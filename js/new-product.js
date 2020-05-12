@@ -1,5 +1,3 @@
-console.log("WTF IS GOING ON");
-
 let orderForm = document.getElementById("odForm");
   let oih3 = document.createElement("h3");
   oih3.textContent = "Order Information";
@@ -58,7 +56,7 @@ let orderForm = document.getElementById("odForm");
     />
   </li>
   <li><label for="zip">Zip</label>
-  <input type = "text"  name = "zip"
+  <input type = "text"  name = "zip" placeholder="10027"
   onblur = "getPlace (this.value)" />
   </li>
   <li>
@@ -138,7 +136,6 @@ let orderForm = document.getElementById("odForm");
   
   function getPlace (zip)
 {
-  console.log("GETTING PLACES")
   if (window.XMLHttpRequest)
   {  // IE7+, Firefox, Chrome, Opera, Safari
      var xhr = new XMLHttpRequest();
@@ -157,14 +154,21 @@ let orderForm = document.getElementById("odForm");
     { // Data should look like "Fairfax, Virginia"
       var result = xhr.responseText;
       var place = result.split (', ');
-        document.getElementById ("city").value = place[0];
-        document.getElementById ("state").value = place[1];
+        document.getElementById("city").value = place[0];
+        document.getElementById("state").value = place[1];
+        var basePrice = (document.getElementById("baseprice").textContent).substring(1);
+        var taxPrice = basePrice * parseFloat(place[2]);
+        var taxPer = parseFloat(place[2]) * 100
+        document.getElementById("tax").textContent = taxPrice.toFixed(2);
+        document.getElementById("taxfrom").textContent = place[3];
+        document.getElementById("taxpercentage").textContent = taxPer.toFixed(0);
     }
   }
   // Call the response software component
   xhr.open ("GET", "getCityState.php?zip=" + zip);
   xhr.send (null);
 }
+
 function submitForm(ev) {
   ev.preventDefault();
   let form = Object.entries(ev.target);
