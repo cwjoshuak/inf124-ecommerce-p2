@@ -57,6 +57,10 @@ let orderForm = document.getElementById("odForm");
       required
     />
   </li>
+  <li><label for="zip">Zip</label>
+  <input type = "text"  name = "zip"
+  onblur = "getPlace (this.value)" />
+  </li>
   <li>
     <label for="city">City</label>
     <input
@@ -68,11 +72,12 @@ let orderForm = document.getElementById("odForm");
     />
   </li>
   <li><label for="state">State</label>
-  <input type="text" id="state" name="state" pattern="^((AL)|(AK)|(AS)|(AZ)|(AR)|(CA)|(CO)|(CT)|(DE)|(DC)|(FM)|(FL)|(GA)|(GU)|(HI)|(ID)|(IL)|(IN)|(IA)|(KS)|(KY)|(LA)|(ME)|(MH)|(MD)|(MA)|(MI)|(MN)|(MS)|(MO)|(MT)|(NE)|(NV)|(NH)|(NJ)|(NM)|(NY)|(NC)|(ND)|(MP)|(OH)|(OK)|(OR)|(PW)|(PA)|(PR)|(RI)|(SC)|(SD)|(TN)|(TX)|(UT)|(VT)|(VI)|(VA)|(WA)|(WV)|(WI)|(WY))$" placeholder="NY" required></li>
+
+  <input type="text" id="state" name="state" pattern="^((AL)|(AK)|(AS)|(AZ)|(AR)|(CA)|(CO)|(CT)|(DE)|(DC)|(FM)|(FL)|(GA)|(GU)|(HI)|(ID)|(IL)|(IN)|(IA)|(KS)|(KY)|(LA)|(ME)|(MH)|(MD)|(MA)|(MI)|(MN)|(MS)|(MO)|(MT)|(NE)|(NV)|(NH)|(NJ)|(NM)|(NY)|(NC)|(ND)|(MP)|(OH)|(OK)|(OR)|(PW)|(PA)|(PR)|(RI)|(SC)|(SD)|(TN)|(TX)|(UT)|(VT)|(VI)|(VA)|(WA)|(WV)|(WI)|(WY))$" placeholder="NY" required>
+  </li>
+  
   <li>
-  <li><label for="zip">Zip</label>
-  <input type="text" id="zip" name="zip" pattern="^\\d{5}(-\\d{4})?$" placeholder="10001" required></li>
-    <label for="shipping_method">Shipping Method:</label>
+  <label for="shipping_method">Shipping Method:</label>
     <select id="shipping-selector">
       <option value="Overnight">Overnight</option>
       <option value="2-days Expedited">2-days Expedited</option>
@@ -130,7 +135,36 @@ let orderForm = document.getElementById("odForm");
   orderForm.appendChild(form);
   
   console.log();
+  
+  function getPlace (zip)
+{
+  console.log("GETTING PLACES")
+  if (window.XMLHttpRequest)
+  {  // IE7+, Firefox, Chrome, Opera, Safari
+     var xhr = new XMLHttpRequest();
+  }
+  else
+  {  // IE5, IE6
+     var xhr = new ActiveXObject ("Microsoft.XMLHTTP");
+  }
 
+  // Register the embedded handler function
+  // This function will be called when the server returns
+  // (the "callback" function)
+  xhr.onreadystatechange = function ()
+  { // 4 means finished, and 200 means okay.
+    if (xhr.readyState == 4 && xhr.status == 200)
+    { // Data should look like "Fairfax, Virginia"
+      var result = xhr.responseText;
+      var place = result.split (', ');
+        document.getElementById ("city").value = place[0];
+        document.getElementById ("state").value = place[1];
+    }
+  }
+  // Call the response software component
+  xhr.open ("GET", "getCityState.php?zip=" + zip);
+  xhr.send (null);
+}
 function submitForm(ev) {
   ev.preventDefault();
   let form = Object.entries(ev.target);
