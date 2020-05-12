@@ -1,6 +1,6 @@
 # IN4MATX 124
 
-## Project 1
+## Project 2
 
 ```
 Members:
@@ -8,37 +8,29 @@ Joshua Kuan (52594796)
 Garry Fanata (39583521)
 ```
 
-We are group 13, our project is hosted on circinus-13.
+We are group 13, this project is NOT hosted on circinus-13. A zoom meeting is scheduled to demo this application.
 
-URL: `http://circinus-13.ics.uci.edu/inf124-proj1/index.html`
-Github Repo: `https://github.com/cwjoshuak/inf124-ecommerce`
+Github Repo: `https://github.com/cwjoshuak/inf124-ecommerce-p2`
 
-Our site consists of 3 main pages
+Our site consists of 4 main pages:-
 
 - the home page: index.html
-- products list page: products.html
-- individual product page: product.html
+- products list page: products.php
+- individual product page: product.php
+- order confirmation page: order_confirmation.php
 
 ### Requirement Satisfaction
 
-1. Our business is eCrocs. Our company vision, motto and team are outlined on the home page.
-2. We have a list of 12 products which were handpicked and stored in shoes.json. This is displayed on the products.html page.
-3. See 4.
-4. On the products.html page, the products are displayed in a table, in a card format. Each card contains the title, image, price and color varieties of the product
-5. Clicking on any part of a product card will link the user to the respective product page, containing detailed information regarding the product they clicked on.
-6. The detailed product page contains a form for the customer to input their important details, and choose the size and quantity before purchasing.
-7. Submission of the form will open up the default mail client, prefilled with To, Subject and message content.
-8. All form fields are checked with HTML validation. A prompt is displayed if any of the validation checks fail.
-9. Our website uses more than 10 different stylistic properties of CSS. We have customized background colors, margin, padding, border radius, shadows, container/image sizes, fonts, etc.
-10. We use the CSS:hover property to increase the size of the images when the mouse is over it. We also demonstrate the JavaScript mouseenter, mouseleave events to detect and change images when the user mouses over a different color on the products list page.
-11. Name and Student ID of group members are in the About Us section of the home page
+1. PHP and MySQL is used to dynamically generate the products list page, individual product page and order confirmation page.
+2. The form input is validated on the client-side as the user fills out the form. After the user fills in the form on the individual product page and clicks on the Purchase button, the form input is sent through a `POST` request to `api/order.php` which uses a prepared SQL statement through `mysqli` to insert it into the `transactions` table.
+3. After the `POST` request is successful, the server responds with a `transaction_id` which is used to redirect the user to the order confirmation page. This page retrieves the transaction listing based on the id and displays the details to the user.
+4.
 
 ### Screenshots
 
 ![](assets/home.png)
 ![](assets/product-list.png)
 ![](assets/single-product.png)
+![](assets/order-confirmation.png)
 
 #### Notes:
-
-Some code was adapted from adapted from [MDN's Your First Form](https://developer.mozilla.org/en-US/docs/Learn/Forms/Your_first_form)
