@@ -243,6 +243,10 @@ let orderForm = document.getElementById("odForm");
 
 function insertToDB(ev) {
   let form = Object.entries(ev.target);
-  form.preventDefault();
   console.log(form);
+
+  var url = 'order_confirmation.php?';
+  var query = 'shoe_id=' + '10001';
+
+  // window.location.href = url + query
 }

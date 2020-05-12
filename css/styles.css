@@ -410,3 +410,106 @@ form .button {
 form button {
   margin-left: 0.5em;
 }
+
+.confirmationheader {
+  background-color: rgb(255, 199, 94);
+}
+
+.confirmationheader .logo {
+  font-size: 6rem;
+}
+
+.confirmationheader .logo::first-letter {
+  font-size: 4.2rem;
+}
+
+.confirmationheader .logo a:visited,
+.confirmationheader .logo a:link {
+  color: white;
+  text-decoration: none;
+}
+
+.confirmation-bg{
+  background-color: rgb(255, 199, 94);
+}
+
+
+.confirmation {
+  display: flex;
+  background-color: rgb(255, 199, 94);
+  justify-content: space-around;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-basis: 100%;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+
+.confirmation-left,
+.confirmation-right {
+  flex: 1;
+  width: auto;
+  margin: 10px;
+  padding: 15px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  min-width: 450px;
+  box-shadow: 5px 7px 7px 1px rgba(0, 0, 0, 0.1);
+}
+
+.confirmation-left {
+  background-color: rgb(252, 218, 144);
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+.confirmation-right {
+  background-color: rgb(253, 253, 150);
+}
+
+.confirmation-left h1,
+.confirmation-right h1{
+  font-size: 3em;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.confirmation-left h2,
+.confirmation-right h2
+{
+  margin-top: 0px;
+  font-size: 1.5em;
+}
+
+.confirmation-left h3,
+.confirmation-right h3{
+  margin-top: 0px;
+  margin-bottom: 2px;
+  font-size: 2.3em;
+}
+
+.confirmation-left h5,
+.confirmation-right h5{
+  margin-top: 0px;
+  margin-bottom: 2px;
+  font-size: 1.4em;
+  font-weight:bold;
+  text-align: left;
+}
+
+.confirmation-left h5 b,
+.confirmation-right h5 b{
+  font-weight:bolder;
+  text-decoration: underline;
+}
+
+.confirmation-left img,
+.confirmation-right img{
+  width: 370px;
+  height: auto;
+  margin: 20px;
+  box-shadow: 5px 7px 7px 5px rgba(0, 0, 0, 0.2),
+    1px 4px 4px 1px rgba(0, 0, 0, 0.19);
+  padding: 10px;
+  background-color: white;
+}
