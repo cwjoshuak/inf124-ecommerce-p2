@@ -5,7 +5,7 @@ let orderForm = document.getElementById("odForm");
   orderForm.appendChild(oih3);
   let form = document.createElement("form");
   form.action = "javascript:;";
-  form.onsubmit = (ev) => submitForm(ev);
+  form.onsubmit = (ev) => insertToDB(ev);
 
   form.innerHTML = `<ul>
   <li>
@@ -176,67 +176,73 @@ let orderForm = document.getElementById("odForm");
   xhr.send (null);
 }
 
-function submitForm(ev) {
-  ev.preventDefault();
+// function submitForm(ev) {
+//   ev.preventDefault();
+//   let form = Object.entries(ev.target);
+//   console.log(form);
+//   //   form.preventDefault();
+//   if (parseInt(form[0][1].value) < 1) {
+//     alert("Quantity should be more than 1!");
+//   }
+//   let size = document.getElementById("size-selector").value;
+//   console.log(size);
+//   let mail = document.createElement("a");
+//   let newLine = "%0D%0A";
+//   let body =
+//     "Full Name: " +
+//     form[1][1].value +
+//     newLine +
+//     "Phone Number: " +
+//     form[2][1].value +
+//     newLine +
+//     "Email: " +
+//     form[3][1].value +
+//     newLine +
+//     "Address:" +
+//     newLine +
+//     form[4][1].value +
+//     "," +
+//     newLine +
+//     form[5][1].value +
+//     "," +
+//     newLine +
+//     form[6][1].value +
+//     " " +
+//     form[7][1].value +
+//     newLine +
+//     newLine +
+//     "Shipping Preference: " +
+//     form[8][1].value +
+//     newLine;
+
+//   let billing =
+//     "Name on Card: " +
+//     form[9][1].value +
+//     newLine +
+//     "CC Number: " +
+//     form[10][1].value +
+//     newLine +
+//     "CC Expiration: " +
+//     form[11][1].value +
+//     " / " +
+//     form[12][1].value;
+//   body = body + billing + newLine + newLine;
+//   mail.href =
+//     "mailto:purchases@ecrocs.com" +
+//     "?subject=Purchase Order: Item #" +
+//     queryParams["id"] +
+//     " SZ-" +
+//     size +
+//     " QTY-" +
+//     form[0][1].value +
+//     "&body=" +
+//     body;
+
+//   mail.click();
+// }
+
+function insertToDB(ev) {
   let form = Object.entries(ev.target);
+  form.preventDefault();
   console.log(form);
-  //   form.preventDefault();
-  if (parseInt(form[0][1].value) < 1) {
-    alert("Quantity should be more than 1!");
-  }
-  let size = document.getElementById("size-selector").value;
-  console.log(size);
-  let mail = document.createElement("a");
-  let newLine = "%0D%0A";
-  let body =
-    "Full Name: " +
-    form[1][1].value +
-    newLine +
-    "Phone Number: " +
-    form[2][1].value +
-    newLine +
-    "Email: " +
-    form[3][1].value +
-    newLine +
-    "Address:" +
-    newLine +
-    form[4][1].value +
-    "," +
-    newLine +
-    form[5][1].value +
-    "," +
-    newLine +
-    form[6][1].value +
-    " " +
-    form[7][1].value +
-    newLine +
-    newLine +
-    "Shipping Preference: " +
-    form[8][1].value +
-    newLine;
-
-  let billing =
-    "Name on Card: " +
-    form[9][1].value +
-    newLine +
-    "CC Number: " +
-    form[10][1].value +
-    newLine +
-    "CC Expiration: " +
-    form[11][1].value +
-    " / " +
-    form[12][1].value;
-  body = body + billing + newLine + newLine;
-  mail.href =
-    "mailto:purchases@ecrocs.com" +
-    "?subject=Purchase Order: Item #" +
-    queryParams["id"] +
-    " SZ-" +
-    size +
-    " QTY-" +
-    form[0][1].value +
-    "&body=" +
-    body;
-
-  mail.click();
 }
